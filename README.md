@@ -1,4 +1,5 @@
-INTERVIEW-COACH
+INTERVIEW COACH
+
 🎤 Context-Driven Interview & Presentation Coach
 
 A real-time, automated communication coach that helps students and early-career professionals improve how they present themselves, not what they know.
@@ -22,6 +23,28 @@ No access to personalized, real-time feedback
 Most existing tools focus on content correctness or grammar, while non-verbal communication, which strongly influences perception, is largely ignored.
 
 👉 As a result, users keep practicing without knowing what exactly is going wrong.
+
+📃flowchart LR
+    User[🎤 User<br/>Camera + Microphone] --> WebApp[💻 Web Application<br/>React / Next.js]
+
+    WebApp -->|Session Control| Backend[🧠 Backend Orchestrator]
+
+    Backend --> Context[📘 Context Generator<br/>Random Neutral Scenario]
+    Backend --> Flow[⏱️ Interview Flow Manager]
+
+    WebApp -->|Audio Stream| Speech[🗣️ Speech Analysis<br/>Whisper]
+    WebApp -->|Video Stream| Vision[👁️ Visual Analysis<br/>Posture & Eye Contact]
+
+    Speech --> Evaluation[⚙️ Rule-Based Evaluation Engine]
+    Vision --> Evaluation
+
+    Context --> Evaluation
+    Flow --> Evaluation
+
+    Evaluation --> Report[📊 Performance Report Generator]
+    Report --> WebApp
+
+    WebApp --> Dashboard[🚀 Feedback Dashboard<br/>Scores • Tips • Progress]
 
 💡 Solution Overview
 
@@ -229,8 +252,18 @@ OpenCV – frame & outfit analysis
 
 ▶️ How to Run the Application (Local)
 1️⃣ Clone the Repository
-git clone https://github.com/your-username/your-repo-name.git
-cd your-repo-name
+git clone https://github.com/mohithgokul/INTERVIEW_COACH.git
+cd INTERVIEW_COACH
+
+1️⃣Install MySQL on your machine
+2️⃣ Create a database:
+Copy code Sql
+CREATE DATABASE interview_coach;
+3️⃣ Create your OWN .env file in backend folder:
+Copy code
+Env
+DATABASE_URL=mysql://root:theirpassword@localhost:3306/interview_coach
+PORT=4000
 
 2️⃣ Install Dependencies
 npm install
@@ -245,7 +278,6 @@ After running the command, the terminal will display an output similar to:
 VITE vX.X.X  ready in XXX ms
 
 ➜  Local:   http://localhost:5173/
-
 
 Open the exact URL shown in your terminal in a browser
 (usually http://localhost:5173).
