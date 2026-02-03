@@ -1,0 +1,24 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Session {
+  id         String   @id @default(uuid())
+  userId     String
+  mode       String
+  createdAt  DateTime @default(now())
+  fluency    Int
+  confidence Int
+  posture    Int
+  eyeContact Int
+  relevance  Int
+  outfit     Int
+  overall    Int
+
+  @@index([userId])
+}
