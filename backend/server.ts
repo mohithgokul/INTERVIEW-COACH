@@ -8,6 +8,10 @@ const prisma = new PrismaClient();
 app.use(cors());
 app.use(express.json());
 
+app.get("/", (req, res) => {
+  res.send("Interview Coach API is running 🚀");
+});
+
 app.post("/session", async (req: Request, res: Response) => {
   try {
     const {
