@@ -98,7 +98,8 @@ export default function Results() {
 
   const mapped = mapScoresForBackend(scores);
 
-  fetch("http://localhost:4000/session", {
+  fetch(`${import.meta.env.VITE_API_BASE_URL}/session`, {
+
   method: "POST",
   headers: {
     "Content-Type": "application/json",
