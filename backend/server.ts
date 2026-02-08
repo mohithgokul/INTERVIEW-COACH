@@ -12,6 +12,15 @@ app.get("/", (req, res) => {
   res.send("Interview Coach API is running 🚀");
 });
 
+app.get("/health", async (_req, res) => {
+  try {
+    await prisma.$queryRaw`SELECT 1`;
+    res.json({ status: "ok", db: "connected" });
+  } catch (e) {
+    res.status(500).json({ status: "error", db: "disconnected" });
+  }
+});
+
 app.post("/session", async (req: Request, res: Response) => {
   try {
     const {
